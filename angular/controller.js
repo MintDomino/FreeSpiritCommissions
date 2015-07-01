@@ -115,7 +115,7 @@
         {
           title: "Additional Minor Edit",
           description: "Example: A version with/without cum, speech bubbles.",
-          price: 5,
+          price: 3,
           selected: false,
           index: 1,
           code: "&ME"        }
