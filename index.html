@@ -1,0 +1,76 @@
+<html ng-app="FreespiritCommissions">
+  <head>
+    <title> Freespirit59 Commission Page </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link href="http://fonts.googleapis.com/css?family=Numans" rel="stylesheet" type="text/css" />
+    <link href="styles/site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="angular/app.js"></script>
+    <script src="angular/controller.js"></script>
+  </head>
+  <body ng-controller="OrderForm as of">
+    Order Code: {{of.code}}<br />
+    Total: ${{of.total.toFixed(2)}}
+
+<br /><br />
+    <form>
+      <input type="checkbox" data-ng-model="of.tiers.sketch.selected" ng-change="of.tiers.ink.selected = false;  of.clearInk(); of.getTotal();"/> Sketch (${{of.tiers.sketch.price.toFixed(2)}})
+      <input type="checkbox" data-ng-model="of.tiers.ink.selected" ng-change="of.tiers.sketch.selected = false;  of.clearSketch(); of.getTotal();"/> Ink (${{of.tiers.ink.price.toFixed(2)}})
+
+      <div ng-show="of.tiers.sketch.selected">
+        Sketch Tier Selections:
+        <br /><br />
+        {{of.colorOptions.title}}<br />
+        <input type="checkbox" data-ng-model="of.colorOptions.sketch.selected" ng-change="of.resetColorOptions(); of.getTotal();" />
+         {{of.colorOptions.sketch.title}} (${{of.colorOptions.sketch.price.toFixed(2)}})
+         <div ng-repeat="option in of.colorOptions.sketch.options">
+           <input type="checkbox" ng-disabled="!of.colorOptions.sketch.selected" data-ng-model="option.selected" ng-change="of.getTotal()" />
+           {{option.title}} (${{option.price.toFixed(2)}}) -- {{option.description}}
+         </div>
+         <br /><br />
+         {{of.characterChoices.title}}
+         <div ng-repeat="option in of.characterChoices.options">
+           <input type="checkbox" data-ng-model="option.selected" ng-change="of.optionChange(of.characterChoices.options, option.index);of.getTotal()" />
+           {{option.title}} ({{option.modifier.toFixed(2)}}%)
+         </div>
+         <br /><br />
+         {{of.nsfwChoices.title}}<br />
+         <input type="checkbox" data-ng-model="of.nsfwChoices.selected" ng-change="of.optionChange(of.nsfwChoices.options, -1); of.getTotal();" />
+          NSFW Image (${{of.nsfwChoices.price.toFixed(2)}})
+         <div ng-repeat="option in of.nsfwChoices.options">
+           <input type="checkbox" ng-disabled="!of.nsfwChoices.selected" data-ng-model="option.selected" ng-change="of.getTotal()" />
+           {{option.title}} (${{option.price.toFixed(2)}}) -- {{option.description}}
+         </div>
+      </div>
+
+      <div ng-show="of.tiers.ink.selected">
+        Ink Tier Selections:
+        <br /><br />
+        {{of.colorOptions.title}}<br />
+        <input type="checkbox" data-ng-model="of.colorOptions.ink.selected" ng-change="of.resetColorOptions(); of.getTotal();" />
+         {{of.colorOptions.ink.title}} (${{of.colorOptions.ink.price.toFixed(2)}})
+         <div ng-repeat="option in of.colorOptions.ink.options">
+           <input type="checkbox" ng-disabled="!of.colorOptions.ink.selected" data-ng-model="option.selected" ng-change="of.optionChange(of.colorOptions.ink.options,option.index);of.getTotal()" />
+           {{option.title}} (${{option.price.toFixed(2)}}) -- {{option.description}}
+         </div>
+         <br /><br />
+         {{of.characterChoices.title}}
+         <div ng-repeat="option in of.characterChoices.options">
+           <input type="checkbox" data-ng-model="option.selected" ng-change="of.optionChange(of.characterChoices.options, option.index);of.getTotal()" />
+           {{option.title}} ({{option.modifier.toFixed(2)}}%)
+         </div>
+         <br /><br />
+         {{of.nsfwChoices.title}}<br />
+         <input type="checkbox" data-ng-model="of.nsfwChoices.selected" ng-change="of.optionChange(of.nsfwChoices.options, -1); of.getTotal();" />
+          NSFW Image (${{of.nsfwChoices.price.toFixed(2)}})
+         <div ng-repeat="option in of.nsfwChoices.options">
+           <input type="checkbox" ng-disabled="!of.nsfwChoices.selected" data-ng-model="option.selected" ng-change="of.getTotal()" />
+           {{option.title}} (${{option.price.toFixed(2)}}) -- {{option.description}}
+         </div>
+     </div>
+
+    </form>
+
+  </body>
+</html>

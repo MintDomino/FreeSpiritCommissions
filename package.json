@@ -1,0 +1,17 @@
+{
+  "name": "freespirit59_commission_order_form",
+  "version": "0.1.0",
+  "description": "A custom-built form for people to directly contact freespirit59 with commission requests.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Mint Domino",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "express": "^4.13.0",
+    "mongoose": "^4.0.6"
+  }
+}
