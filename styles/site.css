@@ -1,10 +1,61 @@
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
 body {
-  font-family: 'Numans', sans-serif !important; }
+  font-family: 'Numans', sans-serif !important;
+  margin: 0;
+  background-color: #1E1E1E !important;
+  min-width: 450px; }
+
+.panel-umbreon {
+  background-color: #0D0A09 !important; }
+
+.panel-umbreon-body {
+  background-color: #C79C1C !important;
+  color: black !important; }
+
+input[type="checkbox"] {
+  width: 21px;
+  height: 21px; }
+
+label {
+  cursor: pointer;
+  font-weight: normal !important; }
+
+.tier {
+  font-size: 24pt; }
+
+.highlight {
+  background-color: #7FDAF3;
+  padding: 5px; }
+
+.header {
+  background-color: #0D0A09;
+  color: #FFD233;
+  text-align: center;
+  padding-top: 20px;
+  margin: 0 !important;
+  padding-bottom: 15px; }
+
+.options {
+  margin: 0 !important;
+  margin-top: 20px !important;
+  color: #FFD233 !important; }
+
+.panel-heading {
+  text-align: center; }
+
+.selections .panel-umbreon-body {
+  line-height: 2.5; }
+
+.selections {
+  font-size: 15pt; }
+
+.options small {
+  font-size: 9pt; }
+
+.header-text:before, .header-text:after {
+  font-family: FontAwesome;
+  display: inline-block;
+  color: #7FDAF3;
+  content: "\f10c";
+  font-size: 30pt; }
 
 /*# sourceMappingURL=site.css.map */
