@@ -88,7 +88,7 @@
           code: "~1"
         },
         {
-          title: "+ 2 Character",
+          title: "+ 2 Characters",
           modifier: 150,
           selected: false,
           index: 1,

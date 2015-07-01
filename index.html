@@ -52,7 +52,7 @@
       <div class="col-sm-2">
         <div class="panel ">
           <div class="panel-heading panel-umbreon">
-            Order Information
+          <i class="fa fa-money"></i>  Order Information
           </div>
           <div class="panel-body panel-umbreon-body">
             <div ng-repeat="item in of.cartOrder">
@@ -77,7 +77,7 @@
           <div class="col-sm-4">
             <div class="panel">
               <div class="panel-heading panel-umbreon">
-                {{of.colorOptions.title}}
+                <i class="fa fa-paint-brush"></i> {{of.colorOptions.title}}
               </div>
               <div class="panel-body panel-umbreon-body">
                 <span class="pull-left">
@@ -97,7 +97,7 @@
             <div class="col-sm-4">
               <div class="panel">
                   <div class="panel-heading panel-umbreon">
-                    {{of.characterChoices.title}}
+                    <i class="fa fa-user-plus"></i> {{of.characterChoices.title}}
                   </div>
                   <div class="panel-body panel-umbreon-body">
                     <div ng-repeat="option in of.characterChoices.options">
@@ -105,13 +105,16 @@
                       <label for="{{option.title}}Sketch">{{option.title}}</label> <span class="pull-right">{{option.modifier.toFixed(2)}}%</span>
                     </div>
                   </div>
+                  <div class="panel-footer panel-umbreon">
+                    <small>All commissions come with one character automatically.  You can add more with a modification to the price.</small>
+                  </div>
                 </div>
             </div>
 
             <div class="col-sm-4">
               <div class="panel">
                   <div class="panel-heading panel-umbreon">
-                    {{of.nsfwChoices.title}}
+                    <i class="fa fa-venus-mars"></i> {{of.nsfwChoices.title}}
                   </div>
                   <div class="panel-body panel-umbreon-body">
                     <input id="nsfwSketch" type="checkbox" data-ng-model="of.nsfwChoices.selected" ng-change="of.optionChange(of.nsfwChoices.options, -1); of.getTotal();" />
@@ -132,7 +135,7 @@
             <div class="col-sm-4 selections">
               <div class="panel">
                   <div class="panel-heading panel-umbreon">
-                    {{of.colorOptions.title}}
+                    <i class="fa fa-paint-brush"></i> {{of.colorOptions.title}}
                   </div>
                   <div class="panel-body panel-umbreon-body">
                     <input type="checkbox" id="inkColor" data-ng-model="of.colorOptions.ink.selected" ng-change="of.resetColorOptions(); of.getTotal();" />
@@ -151,13 +154,16 @@
             <div class="col-sm-4 selections">
               <div class="panel">
                   <div class="panel-heading panel-umbreon">
-                    {{of.characterChoices.title}}
+                    <i class="fa fa-user-plus"></i> {{of.characterChoices.title}}
                   </div>
                   <div class="panel-body panel-umbreon-body">
                     <div ng-repeat="option in of.characterChoices.options">
                       <input type="checkbox" id="{{option.title}}Ink" data-ng-model="option.selected" ng-change="of.optionChange(of.characterChoices.options, option.index);of.getTotal()" />
                       <label for="{{option.title}}Ink">{{option.title}}</label> <span class="pull-right">{{option.modifier.toFixed(2)}}%</span>
                     </div>
+                  </div>
+                  <div class="panel-footer panel-umbreon">
+                    <small>All commissions come with one character automatically.  You can add more with a modification to the price.</small>
                   </div>
                 </div>
 
@@ -167,7 +173,7 @@
             <div class="col-sm-4 selections">
               <div class="panel">
                   <div class="panel-heading panel-umbreon">
-                    {{of.nsfwChoices.title}}
+                    <i class="fa fa-venus-mars"></i> {{of.nsfwChoices.title}}
                   </div>
                   <div class="panel-body panel-umbreon-body">
                     <input id="nsfwInk" type="checkbox" data-ng-model="of.nsfwChoices.selected" ng-change="of.optionChange(of.nsfwChoices.options, -1); of.getTotal();" />
@@ -184,61 +190,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <form>
-          <div ng-show="of.tiers.sketch.selected">
-            Sketch Tier Selections:
-            <br /><br />
-            {{of.colorOptions.title}}<br />
-            <input type="checkbox" data-ng-model="of.colorOptions.sketch.selected" ng-change="of.resetColorOptions(); of.getTotal();" />
-             {{of.colorOptions.sketch.title}} (${{of.colorOptions.sketch.price.toFixed(2)}})
-             <div ng-repeat="option in of.colorOptions.sketch.options">
-               <input type="checkbox" ng-disabled="!of.colorOptions.sketch.selected" data-ng-model="option.selected" ng-change="of.getTotal()" />
-               {{option.title}} (${{option.price.toFixed(2)}}) -- {{option.description}}
-             </div>
-             <br /><br />
-             {{of.characterChoices.title}}
-             <div ng-repeat="option in of.characterChoices.options">
-               <input type="checkbox" data-ng-model="option.selected" ng-change="of.optionChange(of.characterChoices.options, option.index);of.getTotal()" />
-               {{option.title}} ({{option.modifier.toFixed(2)}}%)
-             </div>
-             <br /><br />
-             {{of.nsfwChoices.title}}<br />
-             <input type="checkbox" data-ng-model="of.nsfwChoices.selected" ng-change="of.optionChange(of.nsfwChoices.options, -1); of.getTotal();" />
-              NSFW Image (${{of.nsfwChoices.price.toFixed(2)}})
-             <div ng-repeat="option in of.nsfwChoices.options">
-               <input type="checkbox" ng-disabled="!of.nsfwChoices.selected" data-ng-model="option.selected" ng-change="of.getTotal()" />
-               {{option.title}} (${{option.price.toFixed(2)}}) -- {{option.description}}
-             </div>
-          </div>
-
-          <div ng-show="of.tiers.ink.selected">
-            Ink Tier Selections:
-            <br /><br />
-            {{of.colorOptions.title}}<br />
-            <input type="checkbox" data-ng-model="of.colorOptions.ink.selected" ng-change="of.resetColorOptions(); of.getTotal();" />
-             {{of.colorOptions.ink.title}} (${{of.colorOptions.ink.price.toFixed(2)}})
-             <div ng-repeat="option in of.colorOptions.ink.options">
-               <input type="checkbox" ng-disabled="!of.colorOptions.ink.selected" data-ng-model="option.selected" ng-change="of.optionChange(of.colorOptions.ink.options,option.index);of.getTotal()" />
-               {{option.title}} (${{option.price.toFixed(2)}}) -- {{option.description}}
-             </div>
-             <br /><br />
-             {{of.characterChoices.title}}
-             <div ng-repeat="option in of.characterChoices.options">
-               <input type="checkbox" data-ng-model="option.selected" ng-change="of.optionChange(of.characterChoices.options, option.index);of.getTotal()" />
-               {{option.title}} ({{option.modifier.toFixed(2)}}%)
-             </div>
-             <br /><br />
-             {{of.nsfwChoices.title}}<br />
-             <input type="checkbox" data-ng-model="of.nsfwChoices.selected" ng-change="of.optionChange(of.nsfwChoices.options, -1); of.getTotal();" />
-              NSFW Image (${{of.nsfwChoices.price.toFixed(2)}})
-             <div ng-repeat="option in of.nsfwChoices.options">
-               <input type="checkbox" ng-disabled="!of.nsfwChoices.selected" data-ng-model="option.selected" ng-change="of.getTotal()" />
-               {{option.title}} (${{option.price.toFixed(2)}}) -- {{option.description}}
-             </div>
-         </div>
-
-        </form> -->
       </div>
     </div>
   </body>
