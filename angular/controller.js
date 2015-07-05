@@ -82,14 +82,14 @@
       options: [
         {
           title: "+ 1 Character",
-          modifier: 70,
+          modifier: 60,
           selected: false,
           index: 0,
           code: "~1"
         },
         {
           title: "+ 2 Characters",
-          modifier: 150,
+          modifier: 130,
           selected: false,
           index: 1,
           code: "~2"
