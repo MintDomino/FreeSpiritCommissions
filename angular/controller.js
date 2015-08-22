@@ -229,6 +229,9 @@
 
     function setCode(){
       //Set tiers
+      if(vm.checkingCode.indexOf(vm.tiers.badge.code) > -1){
+        vm.tiers.badge.selected = true;
+      }
       if(vm.checkingCode.indexOf(vm.tiers.sketch.code) > -1){
         vm.tiers.sketch.selected = true;
         if(vm.checkingCode.indexOf(vm.colorOptions.sketch.code) > -1){
