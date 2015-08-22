@@ -28,6 +28,12 @@
         price: 25,
         selected: false,
         code: "In"
+      },
+      badge: {
+        title: "Con Badge",
+        price: 35,
+        selected: false,
+        code: "Bg"
       }
     };
 
@@ -144,6 +150,11 @@
       vm.cartOrder = [];
       vm.cartModifier = [];
       //Get the tier
+      if(vm.tiers.badge.selected){
+        vm.total += vm.tiers.badge.price;
+        vm.code += vm.tiers.badge.code;
+        vm.cartOrder.push({title: vm.tiers.badge.title, price: vm.tiers.badge.price});
+      }
       if(vm.tiers.sketch.selected){
         vm.total += vm.tiers.sketch.price;
         vm.code += vm.tiers.sketch.code;

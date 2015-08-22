@@ -17,12 +17,16 @@
       <div class="col-sm-5 header-item">
         <h3>Choose a commission tier:</h3> <br />
         <div class="tier">
-          <input type="checkbox" data-ng-model="of.tiers.sketch.selected" id="sketch" ng-change="of.tiers.ink.selected = false;  of.clearInk(); of.getTotal();"/>
+          <input type="checkbox" data-ng-model="of.tiers.sketch.selected" id="sketch" ng-change="of.tiers.badge.selected = false; of.tiers.ink.selected = false;  of.clearInk(); of.getTotal();"/>
           <label for="sketch"  >Sketch: ${{of.tiers.sketch.price.toFixed(2)}}</label> <br />
         </div>
         <div class="tier">
-          <input type="checkbox" data-ng-model="of.tiers.ink.selected" id="ink" ng-change="of.tiers.sketch.selected = false;  of.clearSketch(); of.getTotal();"/>
+          <input type="checkbox" data-ng-model="of.tiers.ink.selected" id="ink" ng-change="of.tiers.badge.selected = false; of.tiers.sketch.selected = false;  of.clearSketch(); of.getTotal();"/>
           <label for="ink">Ink: ${{of.tiers.ink.price.toFixed(2)}}</label>
+        </div>
+        <div class="tier">
+          <input type="checkbox" data-ng-model="of.tiers.badge.selected" id="badge" ng-change="of.tiers.ink.selected = false;  of.clearInk(); of.tiers.sketch.selected = false; of.clearSketch(); of.getTotal();"/>
+          <label for="badge"  >Badge: ${{of.tiers.badge.price.toFixed(2)}}</label> <br />
         </div>
       </div>
       <div class="col-sm-2 header-center"> <h3>[OR]</h3> </div>
@@ -189,8 +193,33 @@
                 </div>
             </div>
           </div>
+
+          <div ng-show="of.tiers.badge.selected">
+            <div class="col-sm-12 selections">
+              <div class="panel">
+                  <div class="panel-heading panel-umbreon">
+                    <i class="fa fa-exclamation"></i> {{of.tiers.badge.title}}
+                  </div>
+                  <div class="panel-body panel-umbreon-body">
+                    Badges are custom-ordered commission items that are large, laminated, and come with a cute lanyard! <br />
+                    The base price is $35, but the price can vary depending on the requirements.
+                    Please contact the artist with your badge request and details about what you'd like.
+                  </div>
+                </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+
+    <!-- Footer! -->
+    <div class="row options">
+      <div class="col-sm-12 text-center">
+          <h5>Made with love by <a href="http://www.furaffinity.net/user/nainnain">Mint Domino</a>.  
+            Want a cool web thingy yourself?  <a href="http://www.furaffinity.net/commissions/nainnain">Get your own!</a></h5>
+      </div>
+    </div>
+
   </body>
 </html>
